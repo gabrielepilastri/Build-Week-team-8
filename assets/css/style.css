@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
 body{
     padding: 0;
     margin: 0;
@@ -7,13 +9,31 @@ body{
 }
 
 #container{
-
+    padding-left: 8%;
+    color: white;
 }
 
-#logo{
-    width: 80%;
+#logo img{
+    width: 13%;
     margin: auto;
     margin-top: 80px;
+    padding-bottom: 3%;
+}
+
+h1, h2, h3{
+    font-family: 'Outfit', sans-serif;
+}
+
+h4,h5,h6, p, li, label{
+    font-family: 'Inter', sans-serif;
+}
+
+h1{
+    font-size: 60px;
+}
+
+.purple{
+    color: #d20094;
 }
 
 .stars{
