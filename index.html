@@ -7,9 +7,9 @@
     <title>home Page</title>
   </head>
   <body>
-    <div id="" container>
-      <header>
-        <img src="/assets/images/epicode_logo.png" alt="logo" />
+    <div id="container" >
+      <header id="logo">
+        <img src="/assets/images/epicode_logo.png" alt="logo" width="15%" />
       </header>
 
       <main>
@@ -17,7 +17,7 @@
           Welcome to <br />
           <span>your exam</span>
         </h1>
-        <h3>Instruction</h3>
+        <h2>Instruction</h2>
         <p>
           We don't expect most engineer to know the answer to all of these
           <br />
@@ -25,7 +25,7 @@
         </p>
         <ul>
           <li>
-            Each question is timed and can only be <span>answered once.</span>
+            Each question is <span>timed</span>and can only be <span>answered once.</span>
           </li>
           <li>
             Changing browser tab or opening other windows will invalidate the
@@ -35,16 +35,13 @@
         </ul>
       </main>
 
-      <aside>
+      <footer>
         <div>
           <input type="checkbox" id="iPromise" name="iPromise" required />
-          <label for="iPromise"
-            >I promise to answer myself without help from anyone</label>
+          <label for="iPromise">I promise to answer myself without help from anyone</label>
         </div>
-
-        <input type="button" value="PROCEED" />
-      </aside>
-
+        <button>PROCEED</button>
+      </footer>
     </div>
   </body>
 </html>
