@@ -1,11 +1,53 @@
 body{
+    padding: 0;
     margin: 0;
     box-sizing: border-box;
     background-image: url(../images/bg.jpg);
     background-size: cover;
 }
+
+#container{
+
+}
+
 #logo{
     width: 80%;
     margin: auto;
     margin-top: 80px;
+}
+
+.stars{
+
+}
+
+#iPromise{
+
+}
+
+#quiz{
+
+}
+
+#question{
+
+}
+
+#questionNumber{
+
+}
+
+.answers{
+
+}
+
+#answerButton{
+
+}
+
+#rateButton{
+
+}
+
+#moreInfoBtn{
+    
 }
