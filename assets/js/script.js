@@ -109,12 +109,20 @@ const questions = [
  const bottone = document.getElementById("answerButton");
 
 for (let i = 0; i < questions.length; i++){
-  
+  questions[i].answers = [...questions[i].incorrect_answers];
+  questions[i].answers.unshift(questions[i].correct_answer)
 }
 
 
 
+/*
+Per riuscire a nascondere i div delle rispose che non ci sono (3-4 dei V/F), poniamo visibility nulla e se c'è contenuto di risposta allora appare il div visibile
 
+if (---answer--- !== undefined){
+  visibility: visible;    
+}
+
+*/
 
 
  function eventHandler() {
@@ -130,17 +138,46 @@ for (let i = 0; i < questions.length; i++){
 
 function domandaCorrente() {
   // if (conferma())
-  //   for (let i = 0; i < questions.length; i++) {
+  for (let i = 0; i < questions.length; i++) {
+    let oggetto = questions[i];
+    domanda.innerText = oggetto.question;
+
+    for (let j = 0; j < questions[i].answers.length; j++){
+      const getRandomNum = function() {
+           const numRisposte = questions[i].answers
+           const randIndex = Math.floor(Math.random() * numRisposte.length)
+           const random = numRisposte.splice(randIndex, 1)[0]
+           console.log(random)
+           return random;
+         }
+         getRandomNum ()
       
-      let oggetto = questions[0];
-      domanda.innerText = oggetto.question
-      answer1.innerText = oggetto.
-      answer2.innerText = oggetto.question
-      answer3.innerText = oggetto.question
-      answer4.innerText = oggetto.question
-        
     }
-  // }
+  
+  
+  }};
+
+
+
+
+    // 
+
+
+
+
+      
+    //   answer1.innerText = oggetto.answers[getRandomNum];
+    //   answer2.innerText = oggetto.answers[getRandomNum];
+    //   answer3.innerText = oggetto.answers[getRandomNum];
+    //   answer4.innerText = oggetto.answers[getRandomNum];
+      
+      
+  // vogliamo generare un numero random non ripetuto da assegnare all'indice della risposta in modo che le risposte si dispongano casualmente 
+  
+  
+
+// }
+//   }
 
 
 
