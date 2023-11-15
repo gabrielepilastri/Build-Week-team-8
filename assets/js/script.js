@@ -136,7 +136,7 @@ if (---answer--- !== undefined){
  }
 
 
-function domandaCorrente() {
+/* function domandaCorrente() {
   // if (conferma())
   for (let i = 0; i < questions.length; i++) {
     let oggetto = questions[i];
@@ -155,7 +155,25 @@ function domandaCorrente() {
     }
   
   
-  }};
+  }}; */
+
+  function domandaCorrente() {
+    for (let i = 0; i < questions.length; i++) {
+      let oggetto = questions[i];
+      domanda.innerText = oggetto.question;
+  
+      const answers = [...oggetto.answers];
+      for (let j = 1; j <= 4; j++) {
+        const randomAnswer = getRandomAnswer(answers);
+        document.getElementById(`answer${j}`).innerText = randomAnswer;
+      }
+    }
+  }
+  
+  function getRandomAnswer(answers) {
+    const randIndex = Math.floor(Math.random() * answers.length);
+    return answers.splice(randIndex, 1)[0];
+  }
 
 
 
