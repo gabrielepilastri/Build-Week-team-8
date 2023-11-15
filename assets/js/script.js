@@ -96,7 +96,7 @@ const questions = [
 
   
 
-  window.onload = function () {}
+ 
 
 
  const domanda = document.getElementById("domanda");
@@ -157,7 +157,21 @@ if (---answer--- !== undefined){
   
   }}; */
 
-  function domandaCorrente() {
+
+  window.onload = function () {
+    let oggetto = questions[0];
+    domanda.innerText = oggetto.question;
+
+    const answers = [...oggetto.answers];
+      for (let j = 0; j < 4; j++) {
+        const randomAnswer = getRandomAnswer(answers);
+        document.getElementById(`answer${j}`).innerText = randomAnswer;
+      }
+  }
+
+
+
+  function domandaSuccessiva() {
     for (let i = 0; i < questions.length; i++) {
       let oggetto = questions[i];
       domanda.innerText = oggetto.question;
@@ -174,6 +188,7 @@ if (---answer--- !== undefined){
     const randIndex = Math.floor(Math.random() * answers.length);
     return answers.splice(randIndex, 1)[0];
   }
+
 
 
 
