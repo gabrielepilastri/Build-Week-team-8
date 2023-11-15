@@ -99,7 +99,7 @@ const questions = [
   window.onload = function () {}
 
 
- const question = document.getElementById("question");
+ const domanda = document.getElementById("domanda");
 
  const answer1 = document.getElementById("answer1");
  const answer2 = document.getElementById("answer2");
@@ -107,6 +107,14 @@ const questions = [
  const answer4 = document.getElementById("answer4");
 
  const bottone = document.getElementById("answerButton");
+
+for (let i = 0; i < questions.length; i++){
+  
+}
+
+
+
+
 
 
  function eventHandler() {
@@ -119,11 +127,21 @@ const questions = [
     domandaSuccessiva();
  }
 
+
 function domandaCorrente() {
-    for (let i = 0; i < questions.length; i++) {
-        let oggetto = questions[i];
+  // if (conferma())
+  //   for (let i = 0; i < questions.length; i++) {
+      
+      let oggetto = questions[0];
+      domanda.innerText = oggetto.question
+      answer1.innerText = oggetto.
+      answer2.innerText = oggetto.question
+      answer3.innerText = oggetto.question
+      answer4.innerText = oggetto.question
         
     }
-    
-}
+  // }
 
+
+
+domandaCorrente()
