@@ -101,10 +101,10 @@ const questions = [
 
  const domanda = document.getElementById("domanda");
 
+ const answer0 = document.getElementById("answer0");
  const answer1 = document.getElementById("answer1");
  const answer2 = document.getElementById("answer2");
  const answer3 = document.getElementById("answer3");
- const answer4 = document.getElementById("answer4");
 
  const bottone = document.getElementById("answerButton");
 
@@ -163,7 +163,7 @@ if (---answer--- !== undefined){
       domanda.innerText = oggetto.question;
   
       const answers = [...oggetto.answers];
-      for (let j = 1; j <= 4; j++) {
+      for (let j = 0; j < 4; j++) {
         const randomAnswer = getRandomAnswer(answers);
         document.getElementById(`answer${j}`).innerText = randomAnswer;
       }
