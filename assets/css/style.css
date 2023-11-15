@@ -17,9 +17,10 @@ body{
 #logo img{
     width: 8%;
     margin: auto;
-    margin-top: 80px;
-    padding-bottom: 3%;
+    margin-top: 35px;
+    padding-bottom: 2%;
 }
+
 
 h1, h2, h3{
     font-family: 'Outfit', sans-serif;
@@ -28,15 +29,35 @@ h1, h2, h3{
 }
 
 span{
-    font-weight:900;
+    font-weight:700;
 }
 
 h1{
     font-size: 60px;
+    line-height: 45px;
+    margin-bottom: 40px;
+    
+}
+
+#instruction{
+   line-height: 10px;
+   margin-bottom: 1px;
 }
 
 .purple{
     color: #d20094;
+    
+}
+
+#liste {
+    margin-top: 40px;
+    padding-left: 25px;
+    
+}
+
+li {
+    line-height: 28px;
+
 }
 
 .stars{
@@ -44,11 +65,42 @@ h1{
 }
 
 #iPromise{
-
+    background-color: #0C113B;
 }
 
-#quiz{
+label {
+    font-size: small;
+    font-weight: 500;
+}
 
+#footer {
+    
+    padding-top: 5% ;
+    display: inline-block;
+}
+
+#btnProceed{
+    margin-left: 180px;
+    padding: 14px 45px;
+    font-size: 80%;
+    background-color: #00FFFF ;
+    border: transparent;
+    box-shadow: #00FFFF 0px 0px 20px;
+    cursor: pointer;
+}
+
+#quiz {
+    text-align: center;
+}
+
+#footer1 {
+    text-align: center;
+}
+
+#answerBox {
+    text-align: center;
+    display: inline-block;
+    width: 70%;
 }
 
 #question{
@@ -60,12 +112,22 @@ h1{
 }
 
 .answers{
-
+    display: inline-block;
+    padding: 10px;
+    border: 2px solid white;
+    width: 35%;
+    margin: 1%;
+    border-radius: 20px;
+    background-color: #2729522e;
 }
 
 #answerButton{
-
+    margin-top: 50px;
+    text-align: center;
+    
 }
+
+
 
 #rateButton{
 
