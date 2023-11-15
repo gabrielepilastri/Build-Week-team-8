@@ -108,5 +108,22 @@ const questions = [
 
  const bottone = document.getElementById("answerButton");
 
- 
+
+ function eventHandler() {
+    domandaCorrente();
+    timer();
+    selectAnswer(); 
+
+    conferma();
+
+    domandaSuccessiva();
+ }
+
+function domandaCorrente() {
+    for (let i = 0; i < questions.length; i++) {
+        let oggetto = questions[i];
+        
+    }
+    
+}
 
