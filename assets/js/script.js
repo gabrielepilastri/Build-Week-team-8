@@ -5,7 +5,11 @@ const questions = [
     difficulty: "easy",
     question: "What does CPU stand for?",
     correct_answer: "Central Processing Unit",
-    incorrect_answers: ["Central Process Unit","Computer Personal Unit", "Central Processor Unit",],
+    incorrect_answers: [
+      "Central Process Unit",
+      "Computer Personal Unit",
+      "Central Processor Unit",
+    ],
   },
   {
     category: "Science: Computers",
@@ -61,11 +65,7 @@ const questions = [
     question:
       "What is the code name for the mobile operating system Android 7.0?",
     correct_answer: "Nougat",
-    incorrect_answers: [
-      "Ice Cream Sandwich",
-      "Jelly Bean",
-      "Marshmallow",
-    ],
+    incorrect_answers: ["Ice Cream Sandwich", "Jelly Bean", "Marshmallow"],
   },
   {
     category: "Science: Computers",
@@ -94,133 +94,111 @@ const questions = [
   },
 ];
 
-
-
-
-
-
+// da inserire dentro una funzione
 const domanda = document.getElementById("domanda");
 const answerBox = document.getElementById("answerBox");
 const bottone = document.getElementById("answerButton");
 let indiceDomanda = 0;
 let oggetto = questions[indiceDomanda];
+let punteggio = 0;
+let answers;
+console.log(questions);
 
 
-
-
-for (let i = 0; i < questions.length; i++){
-questions[i].answers = [...questions[i].incorrect_answers];
-questions[i].answers.unshift(questions[i].correct_answer)
+window.addEventListener('load',init());
+function init(){
+domande();
 }
+ 
 
-
-
-const answers = [...oggetto.answers];
-
-
-
-/*
-Per riuscire a nascondere i div delle rispose che non ci sono (3-4 dei V/F), poniamo visibility nulla e se c'è contenuto di risposta allora appare il div visibile
-
-if (---answer--- !== undefined){
-visibility: visible;    
+/*Popola le risposte per ogni domanda
+function risposte() {
+  
+  
+  console.log(answers);
 }
-
 */
 
 
-function eventHandler() {
-  domande();
-  timer();
-  // selectAnswer(); 
-  conferma();
-}
-
-
-//0- DAMMI LA DOMANDA 1- per ogni rispost UN BUTTTON RADIO 2- AL CLICK DEL BUTTON , CONFERMA 3- SCADE TIMER/RISPOSTA CONFERMATA,, DOMANDA SUCCESSIVA
-
-
 function getRandomAnswer(answers) {
-const randIndex = Math.floor(Math.random() * answers.length);
-return answers.splice(randIndex, 1)[0];
+  const randIndex = Math.floor(Math.random() * answers.length);
+  return answers.splice(randIndex, 1)[0];
 }
-
-
-
-
-// window.onload = function () {
-//   let oggetto = questions[0];
-//   domanda.innerText = oggetto.question;
-
-//   const answers = [...oggetto.answers];
-//     for (let j = 0; j < 4; j++) {
-//       const randomAnswer = getRandomAnswer(answers);
-//       document.getElementById(`answer${j}`).innerText = randomAnswer;
-//     }
-// }
-
-
-
-// function domande() {
-//   for (let i = 0; i < questions.length; i++) {
-//     let oggetto = questions[i];
-//     domanda.innerText = oggetto.question;
-
-//     const answers = [...oggetto.answers];
-//     for (let j = 0; j < 4; j++) {
-//       const randomAnswer = getRandomAnswer(answers);
-//       document.getElementById(`answer${j}`).innerText = randomAnswer;
-//     }
-//   }
-// }
 
 function domande() {
+  // Ripulisci il contenuto precedente delle risposte
+
+  answerBox.innerHTML = "";
+
+  
+    
+    questions[indiceDomanda].answers = [...questions[indiceDomanda].incorrect_answers];
+    questions[indiceDomanda].answers.unshift(questions[indiceDomanda].correct_answer);
+    
+  
+  
+  //console.log(answers);
   domanda.innerText = questions[indiceDomanda].question;
 
-
-
-  // indiceDomanda++;
-  for (let i = 0; i < questions[indiceDomanda].answers.length; i++) {
-    
+  for (let i = 0; i < questions[indiceDomanda].answers.length+4; i++) {
     let label = document.createElement("label");
     let radio = document.createElement("input");
     radio.setAttribute("type", "radio");
     radio.setAttribute("name", "bottone");
     let span = document.createElement("span");
 
-    const randomAnswer = getRandomAnswer(answers);
-         span.innerText = randomAnswer;
-    
+    const randomAnswer = getRandomAnswer(questions[indiceDomanda].answers);
+    span.innerText = randomAnswer;
 
-    radio.classList.add("input")
+    radio.classList.add("input");
     label.appendChild(radio);
     label.appendChild(span);
-    label.classList.add("answers")
-
+    label.classList.add("answers");
 
     answerBox.appendChild(label);
-    
   }
 }
 
+function conferma() {
+  // Ottieni la risposta selezionata
+  const selezionata = document.querySelector('input[name="bottone"]:checked');
+
+  if (selezionata) {
+    // Verifica se la risposta Ã¨ corretta
+    const rispostaUtente = selezionata.nextElementSibling.innerText;
+    const rispostaCorretta = oggetto.correct_answer;
+
+    if (rispostaUtente === rispostaCorretta) {
+      punteggio++;
+    }
+  }
+  indiceDomanda++;
+  domande();
+}
+
+
+bottone.addEventListener("click", conferma);
+/*
+  // Passa alla prossima domanda o mostra il risultato finale
+  if (indiceDomanda < questions.length - 1) {
+    indiceDomanda++;
+    domande();
+  } else {
+    mostraRisultato();
+  }
+  domande();
+  bottone.addEventListener("click", conferma);
+/*
+function mostraRisultato() {
+  alert(`Quiz completato! Punteggio: ${punteggio}/${questions.length}`);
+  // Puoi anche aggiungere logica per mostrare i risultati nell'HTML
+}
+
+// Aggiungi l'evento click al bottone
+bottone.addEventListener("click", conferma);
+
+// Chiamate alle funzioni principali
 domande();
-
-
-let selezionabili = document.querySelectorAll('input[name="bottone"]');
-let selezionata;
-let giusta = answers[0];
-console.log(selezionabili)
-
-// controllare se radicon risposta 0 è true
-
-function conferma(selezionata){
-  if (selezionabili === questions[indiceDomanda].correct_answer){
-    console.log('bibi');
-  
-  }
-}
-
-conferma()
 
 
 
@@ -288,5 +266,3 @@ for (let i = 0; i < questions.length; i++) {
 
 
 }}; */
-
-
