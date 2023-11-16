@@ -94,6 +94,13 @@ const questions = [
   },
 ];
 
+// prova
+
+
+
+
+
+
 // da inserire dentro una funzione
 const domanda = document.getElementById("domanda");
 const answerBox = document.getElementById("answerBox");
@@ -102,6 +109,13 @@ let indiceDomanda = 0;
 let oggetto = questions[indiceDomanda];
 let punteggio = 0;
 let answers;
+let h3 = document.getElementById("questionNumber");
+
+let numeroDomanda= indiceDomanda + 1;
+
+
+
+
 console.log(questions);
 
 
@@ -110,6 +124,23 @@ function init(){
 domande();
 }
  
+function startTimer() {
+  timer = setTimeout(() => {
+    // Funzione chiamata quando il timer scade
+   
+    
+    domande();
+  }, 5000); // 30 secondi
+}
+
+function resetTimer() {
+  clearTimeout(timer); // Resetta il timer
+  startTimer();
+ 
+  
+  
+   
+}
 
 /*Popola le risposte per ogni domanda
 function risposte() {
@@ -127,9 +158,9 @@ function getRandomAnswer(answers) {
 
 function domande() {
   // Ripulisci il contenuto precedente delle risposte
-
+  
   answerBox.innerHTML = "";
-
+  
   
     
     questions[indiceDomanda].answers = [...questions[indiceDomanda].incorrect_answers];
@@ -140,7 +171,9 @@ function domande() {
   //console.log(answers);
   domanda.innerText = questions[indiceDomanda].question;
 
-  for (let i = 0; i < questions[indiceDomanda].answers.length+4; i++) {
+  
+
+  for (let i = 0; i < questions[indiceDomanda].answers.length*4; i++) {
     let label = document.createElement("label");
     let radio = document.createElement("input");
     radio.setAttribute("type", "radio");
@@ -156,8 +189,19 @@ function domande() {
     label.classList.add("answers");
 
     answerBox.appendChild(label);
+    
   }
+  h3.innerText = `DOMANDONA ${numeroDomanda}/10`
+  indiceDomanda++;
+  resetTimer();
+  
+ 
+  
+  
+  
 }
+
+
 
 function conferma() {
   // Ottieni la risposta selezionata
@@ -172,8 +216,12 @@ function conferma() {
       punteggio++;
     }
   }
-  indiceDomanda++;
+  
+  
   domande();
+  resetTimer();
+  
+  
 }
 
 
