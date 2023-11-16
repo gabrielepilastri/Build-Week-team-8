@@ -108,7 +108,6 @@ let oggetto = questions[indiceDomanda];
 
 
 
-
 for (let i = 0; i < questions.length; i++){
 questions[i].answers = [...questions[i].incorrect_answers];
 questions[i].answers.unshift(questions[i].correct_answer)
@@ -133,7 +132,7 @@ visibility: visible;
 function eventHandler() {
   domande();
   timer();
-  selectAnswer(); 
+  // selectAnswer(); 
   conferma();
 }
 
@@ -176,7 +175,7 @@ return answers.splice(randIndex, 1)[0];
 // }
 
 function domande() {
-  domanda.innerText = questions[indiceDomanda];
+  domanda.innerText = questions[indiceDomanda].question;
 
 
 
@@ -206,18 +205,35 @@ function domande() {
 
 domande();
 
-function selectAnswer() {
-  label.addEventListener("click", colora())
+
+let selezionabili = document.querySelectorAll('input[name="bottone"]');
+let selezionata;
+let giusta = answers[0];
+console.log(selezionabili)
+
+// controllare se radicon risposta 0 è true
+
+function conferma(selezionata){
+  if (selezionabili === questions[indiceDomanda].correct_answer){
+    console.log('bibi');
+  
+  }
 }
 
-
-function colora() {
-  label.classList.add("answersChecked")
-}
-
-selectAnswer();
+conferma()
 
 
+
+// function selectAnswer() {
+//   label.addEventListener("click", colora())
+// }
+
+
+// function colora() {
+//   label.classList.add("answersChecked")
+// }
+
+// selectAnswer();
 
 // function timer() {
 //   setInterval(window.onload, 30000)
