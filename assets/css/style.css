@@ -14,6 +14,11 @@ body{
     color: white;
 }
 
+#feedbackContainer{
+    color: white;
+    text-align: center;
+}
+
 #logo img{
     width: 8%;
     margin: auto;
@@ -150,7 +155,23 @@ label {
 }
 
 #moreInfoBtn{
-    
+    padding: 14px 45px;
+    margin-top: 4%;
+    font-size: 80%;
+    background-color: #00FFFF ;
+    border: transparent;
+    box-shadow: #00FFFF 0px 0px 20px;
+    cursor: pointer;
+
+}
+
+#commentArea{
+    background-color: #2729522e;
+    width: 30%;
+    height: 2em;
+    border: none;
+    border-bottom: 2px solid #d20094;
+    padding-left: 3%;
 }
 
 

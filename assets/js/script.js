@@ -314,3 +314,20 @@ for (let i = 0; i < questions.length; i++) {
 
 
 }}; */
+
+
+function move() {
+  const element = document.getElementById("barra");
+  let width = 0;
+  let id = setInterval(frame, 100);
+  function frame() {
+    if (width == 50) {
+      clearInterval(id);
+    } else {
+      width++;
+      element.style.width = width + "%";
+    }
+  }
+}
+
+move()
