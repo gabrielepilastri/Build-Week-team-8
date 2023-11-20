@@ -165,6 +165,10 @@ label {
     cursor: pointer;
 }
 
+.nascondi{
+    visibility:hidden;
+}
+
 
 #rateButton{
 
