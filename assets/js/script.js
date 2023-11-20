@@ -135,6 +135,16 @@ function getRandomAnswer(answers) {
   return answers.splice(randIndex, 1)[0];
 }
 
+function divResult() {
+  let divRisultati = document.getElementById("divRisultati");
+    let titolo= document.createElement("h1");
+    let sottotitolo = document.createElement("h2");
+    sottotitolo.innerText = "ciao";
+    titolo.innerText = "results";
+    divRisultati.appendChild(titolo);
+    
+}
+
 function domande() {
   // Ripulisci il contenuto precedente delle risposte
   answerBox.innerHTML = "";
@@ -171,8 +181,11 @@ function domande() {
 
     quiz.classList.add("hidden");
     quiz.innerText = ""
+    divResult();
   }
 }
+
+
 
 function conferma() {
   // Ottieni la risposta selezionata
