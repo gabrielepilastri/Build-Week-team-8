@@ -210,7 +210,10 @@ function conferma() {
   domande();
 }
 
+let correct = document.getElementById("corrette");
+let wrong = document.getElementById("sbagliate");
 
+correct.innerText = "ciao"
 
 
 /*

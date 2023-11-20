@@ -252,3 +252,11 @@ input[type="radio"] {
     display: flex;
     justify-content: space-between;
  }
+
+ #centralesx{
+    padding-left: 5%;
+ }
+
+ #centraledx{
+    padding-right: 5%;
+ }
