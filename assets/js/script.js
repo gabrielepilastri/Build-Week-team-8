@@ -139,13 +139,13 @@ function domande() {
   // Ripulisci il contenuto precedente delle risposte
   answerBox.innerHTML = "";
 
-  let oggetto = questions[indiceDomanda];
-  oggetto.answers = [...oggetto.incorrect_answers];
-  oggetto.answers.unshift(oggetto.correct_answer);
-
-  domanda.innerText = oggetto.question;
-
   if (indiceDomanda < questions.length) {
+    let oggetto = questions[indiceDomanda];
+    oggetto.answers = [...oggetto.incorrect_answers];
+    oggetto.answers.unshift(oggetto.correct_answer);
+
+    domanda.innerText = oggetto.question;
+
     for (let i = 0; i < oggetto.answers.length * 4; i++) {
       let label = document.createElement("label");
       let radio = document.createElement("input");
@@ -168,7 +168,9 @@ function domande() {
     numeroDomanda++;
     resetTimer();
   } else {
+
     quiz.classList.add("hidden");
+    quiz.innerText = ""
   }
 }
 
