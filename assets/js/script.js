@@ -16,7 +16,7 @@ const questions = [
     type: "multiple",
     difficulty: "easy",
     question:
-      "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn&#039;t get modified?",
+      "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn't get modified?",
     correct_answer: "Final",
     incorrect_answers: ["Static", "Private", "Public"],
   },
@@ -188,6 +188,10 @@ function domande() {
 
 
 
+
+
+bottone.addEventListener("click", conferma);
+
 function conferma() {
   // Ottieni la risposta selezionata
   const selezionata = document.querySelector('input[name="bottone"]:checked');
@@ -206,7 +210,9 @@ function conferma() {
   domande();
 }
 
-bottone.addEventListener("click", conferma);
+
+
+
 /*
   // Passa alla prossima domanda o mostra il risultato finale
   if (indiceDomanda < questions.length - 1) {
@@ -312,3 +318,5 @@ for (let i = 0; i < questions.length; i++) {
 // }
 
 // move()
+
+

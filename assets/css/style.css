@@ -50,7 +50,7 @@ span{
 
 h1{
     font-size: 60px;
-    line-height: 45px;
+    line-height: 60px;
     margin-bottom: 40px;
     
 }
@@ -171,7 +171,14 @@ label {
 
 
 #rateButton{
-
+    padding: 14px 45px;
+    margin-top: 2%;
+    font-size: 80%;
+    background-color: #00ffff00 ;
+    color: white;
+    border: 2px solid white;
+    box-shadow: #00FFFF 0px 0px 20px;
+    cursor: pointer;
 }
 
 #moreInfoBtn{
@@ -236,3 +243,12 @@ input[type="radio"] {
     cursor: pointer;
     
   }
+
+  #cerchio{
+    width: 30%;
+  }
+
+ #centrale{
+    display: flex;
+    justify-content: space-between;
+ }
