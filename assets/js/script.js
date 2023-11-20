@@ -106,51 +106,29 @@ const domanda = document.getElementById("domanda");
 const answerBox = document.getElementById("answerBox");
 const bottone = document.getElementById("answerButton");
 let indiceDomanda = 0;
-let oggetto = questions[indiceDomanda];
 let punteggio = 0;
-let answers;
 let h3 = document.getElementById("questionNumber");
 let quiz = document.getElementById("quiz");
+let numeroDomanda = 1;
+let timer;
 
-let numeroDomanda= 1;
+window.addEventListener('load', init);
 
-
-
-
-// console.log(questions);
-
-
-window.addEventListener('load',init());
-function init(){
-domande();
+function init() {
+  domande();
 }
- 
-// function startTimer() {
-//   timer = setTimeout(() => {
-//     // Funzione chiamata quando il timer scade
-   
-    
-//     domande();
-//   }, 5000); // 30 secondi
-// }
 
-// function resetTimer() {
-//   clearTimeout(timer); // Resetta il timer
-//   startTimer();
- 
-  
-  
-   
-// }
-
-/*Popola le risposte per ogni domanda
-function risposte() {
-  
-  
-  console.log(answers);
+function startTimer() {
+  timer = setTimeout(() => {
+    // Funzione chiamata quando il timer scade
+    domande();
+  }, 5000); // 5 secondi
 }
-*/
 
+function resetTimer() {
+  clearTimeout(timer); // Resetta il timer
+  startTimer();
+}
 
 function getRandomAnswer(answers) {
   const randIndex = Math.floor(Math.random() * answers.length);
@@ -159,22 +137,16 @@ function getRandomAnswer(answers) {
 
 function domande() {
   // Ripulisci il contenuto precedente delle risposte
-  
   answerBox.innerHTML = "";
-  
-  
-    
-    oggetto.answers = [...oggetto.incorrect_answers];
-    oggetto.answers.unshift(oggetto.correct_answer);
-    
-  
-  
-  //console.log(answers);
+
+  let oggetto = questions[indiceDomanda];
+  oggetto.answers = [...oggetto.incorrect_answers];
+  oggetto.answers.unshift(oggetto.correct_answer);
+
   domanda.innerText = oggetto.question;
 
   if (indiceDomanda < questions.length) {
-
-    for (let i = 0; i < oggetto.answers.length*4; i++) {
+    for (let i = 0; i < oggetto.answers.length * 4; i++) {
       let label = document.createElement("label");
       let radio = document.createElement("input");
       radio.setAttribute("type", "radio");
@@ -190,42 +162,33 @@ function domande() {
       label.classList.add("answers");
 
       answerBox.appendChild(label);
-      
     }
-    h3.innerText = `DOMANDONA ${numeroDomanda}/10`
+    h3.innerText = `DOMANDONA ${numeroDomanda}/10`;
     indiceDomanda++;
     numeroDomanda++;
-    // resetTimer();
-    
-    
+    resetTimer();
   } else {
-    quiz.style.classList.add = "hidden"
+    quiz.classList.add("hidden");
   }
 }
-
 
 function conferma() {
   // Ottieni la risposta selezionata
   const selezionata = document.querySelector('input[name="bottone"]:checked');
 
   if (selezionata) {
-    // Verifica se la risposta Ã¨ corretta
+    // Verifica se la risposta è corretta
     const rispostaUtente = selezionata.nextElementSibling.innerText;
-    const rispostaCorretta = oggetto.correct_answer;
+    const rispostaCorretta = questions[indiceDomanda - 1].correct_answer;
 
     if (rispostaUtente === rispostaCorretta) {
       punteggio++;
     }
-    console.log(punteggio)
+    console.log(punteggio);
   }
-  
-  
-  domande();
-  // resetTimer();
-  
-  
-}
 
+  domande();
+}
 
 bottone.addEventListener("click", conferma);
 /*
