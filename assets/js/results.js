@@ -1,4 +1,0 @@
-punteggio = localStorage.getItem("punteggio")
-
-
-

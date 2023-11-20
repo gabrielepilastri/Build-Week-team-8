@@ -122,15 +122,6 @@ label {
     display: inline-block;
     width: 70%;
 }
-
-#question{
-
-}
-
-#questionNumber{
-
-}
-
 .answers{
     /* visibility: hidden;     */
     display: inline-block;
@@ -193,7 +184,7 @@ label {
     border: transparent;
     box-shadow: #00FFFF 0px 0px 20px;
     cursor: pointer;
-
+    
 }
 
 #commentArea{
@@ -281,4 +272,10 @@ input[type="radio"] {
 .star.hovered,
 .star.clicked {
     color: #00FFFF;
+}
+.risultati{
+    font-size: 60px;
+}
+#footer2{
+    padding-bottom: 30px;
 }
