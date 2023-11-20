@@ -110,13 +110,14 @@ let oggetto = questions[indiceDomanda];
 let punteggio = 0;
 let answers;
 let h3 = document.getElementById("questionNumber");
+let quiz = document.getElementById("quiz");
 
-let numeroDomanda= indiceDomanda + 1;
+let numeroDomanda= 1;
 
 
 
 
-console.log(questions);
+// console.log(questions);
 
 
 window.addEventListener('load',init());
@@ -124,23 +125,23 @@ function init(){
 domande();
 }
  
-function startTimer() {
-  timer = setTimeout(() => {
-    // Funzione chiamata quando il timer scade
+// function startTimer() {
+//   timer = setTimeout(() => {
+//     // Funzione chiamata quando il timer scade
    
     
-    domande();
-  }, 5000); // 30 secondi
-}
+//     domande();
+//   }, 5000); // 30 secondi
+// }
 
-function resetTimer() {
-  clearTimeout(timer); // Resetta il timer
-  startTimer();
+// function resetTimer() {
+//   clearTimeout(timer); // Resetta il timer
+//   startTimer();
  
   
   
    
-}
+// }
 
 /*Popola le risposte per ogni domanda
 function risposte() {
@@ -163,44 +164,44 @@ function domande() {
   
   
     
-    questions[indiceDomanda].answers = [...questions[indiceDomanda].incorrect_answers];
-    questions[indiceDomanda].answers.unshift(questions[indiceDomanda].correct_answer);
+    oggetto.answers = [...oggetto.incorrect_answers];
+    oggetto.answers.unshift(oggetto.correct_answer);
     
   
   
   //console.log(answers);
-  domanda.innerText = questions[indiceDomanda].question;
+  domanda.innerText = oggetto.question;
 
-  
+  if (indiceDomanda < questions.length) {
 
-  for (let i = 0; i < questions[indiceDomanda].answers.length*4; i++) {
-    let label = document.createElement("label");
-    let radio = document.createElement("input");
-    radio.setAttribute("type", "radio");
-    radio.setAttribute("name", "bottone");
-    let span = document.createElement("span");
+    for (let i = 0; i < oggetto.answers.length*4; i++) {
+      let label = document.createElement("label");
+      let radio = document.createElement("input");
+      radio.setAttribute("type", "radio");
+      radio.setAttribute("name", "bottone");
+      let span = document.createElement("span");
 
-    const randomAnswer = getRandomAnswer(questions[indiceDomanda].answers);
-    span.innerText = randomAnswer;
+      const randomAnswer = getRandomAnswer(oggetto.answers);
+      span.innerText = randomAnswer;
 
-    radio.classList.add("input");
-    label.appendChild(radio);
-    label.appendChild(span);
-    label.classList.add("answers");
+      radio.classList.add("input");
+      label.appendChild(radio);
+      label.appendChild(span);
+      label.classList.add("answers");
 
-    answerBox.appendChild(label);
+      answerBox.appendChild(label);
+      
+    }
+    h3.innerText = `DOMANDONA ${numeroDomanda}/10`
+    indiceDomanda++;
+    numeroDomanda++;
+    // resetTimer();
     
+    
+  } else {
+    quiz.style.classList.add = "hidden"
   }
-  h3.innerText = `DOMANDONA ${numeroDomanda}/10`
-  indiceDomanda++;
-  resetTimer();
-  
- 
-  
-  
-  
 }
-
 
 
 function conferma() {
@@ -215,11 +216,12 @@ function conferma() {
     if (rispostaUtente === rispostaCorretta) {
       punteggio++;
     }
+    console.log(punteggio)
   }
   
   
   domande();
-  resetTimer();
+  // resetTimer();
   
   
 }
@@ -316,18 +318,18 @@ for (let i = 0; i < questions.length; i++) {
 }}; */
 
 
-function move() {
-  const element = document.getElementById("barra");
-  let width = 0;
-  let id = setInterval(frame, 100);
-  function frame() {
-    if (width == 50) {
-      clearInterval(id);
-    } else {
-      width++;
-      element.style.width = width + "%";
-    }
-  }
-}
+// function move() {
+//   const element = document.getElementById("barra");
+//   let width = 0;
+//   let id = setInterval(frame, 100);
+//   function frame() {
+//     if (width == 50) {
+//       clearInterval(id);
+//     } else {
+//       width++;
+//       element.style.width = width + "%";
+//     }
+//   }
+// }
 
-move()
+// move()

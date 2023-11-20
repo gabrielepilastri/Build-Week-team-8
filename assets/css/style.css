@@ -26,6 +26,9 @@ body{
     padding-bottom: 2%;
 }
 
+a {
+    text-decoration: none;
+}
 
 h1, h2, h3{
     font-family: 'Outfit', sans-serif;
@@ -35,6 +38,14 @@ h1, h2, h3{
 
 span{
     font-weight:700;
+}
+
+#feedbackLogo img{
+    width: 12%;
+    margin: auto;
+    margin-top: 35px;
+    padding-bottom: 2%;
+    padding-left: 5%;
 }
 
 h1{
@@ -145,9 +156,18 @@ label {
 #answerButton{
     margin-top: 50px;
     text-align: center;
-    
+    padding: 14px 45px;
+    margin-top: 4%;
+    font-size: 80%;
+    background-color: #00FFFF ;
+    border: transparent;
+    box-shadow: #00FFFF 0px 0px 20px;
+    cursor: pointer;
 }
 
+.nascondi{
+    visibility:hidden ;
+}
 
 
 #rateButton{
@@ -166,7 +186,7 @@ label {
 }
 
 #commentArea{
-    background-color: #2729522e;
+    background-color: #27295200;
     width: 30%;
     height: 2em;
     border: none;
