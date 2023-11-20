@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Question Page</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
@@ -34,6 +35,56 @@
         </div>
       </footer>
     </div>
+
+    <div id="resultContainer">
+        
+
+      <main id="main">
+          <h1>Results</h1>
+          <h2>The summary of your answers:</h2>
+
+          <div id="centrale">
+              <div id="centralesx">
+                  <h3>Correct</h3>
+                  <h3 id="corrette">
+                      
+                  </h3>
+                  <p id="frazioneCorrette"></p>
+              </div>
+
+              <div id="cerchio">
+                  <canvas  id="myChart">
+
+                  </canvas>
+
+                  <script>
+                     
+                  </script>
+
+              <div id="centralecentro">
+                  <h4 id="messaggio"></h4>
+                  <h4 id="passedFailed"></h4>
+                  <p id="certificate"></p>
+              </div>
+              </div>
+
+              <div id="centraledx">
+                  <h3>Wrong</h3>
+                  <h3 id="sbagliate"></h3>
+                  <p id="frazioneSbagliate"></p>
+              </div>
+
+          </div>
+
+      </main>
+
+
+      <div id="footer2">
+          <a href="feedback-page.html"><button id="rateButton"><span>RATE US</span></button></a>
+      </div>
+
+  </div>
+
     <script src="assets/js/script.js"></script>
   </body>
 </html>

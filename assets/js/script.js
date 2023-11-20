@@ -111,12 +111,16 @@ let h3 = document.getElementById("questionNumber");
 let quiz = document.getElementById("quiz");
 let numeroDomanda = 1;
 let timer;
+let divDeiRisultati = document.getElementById("resultContainer")
 
 window.addEventListener('load', init);
 
 function init() {
   domande();
 }
+
+
+
 
 function startTimer() {
   timer = setTimeout(() => {
@@ -135,15 +139,6 @@ function getRandomAnswer(answers) {
   return answers.splice(randIndex, 1)[0];
 }
 
-function divResult() {
-  let divRisultati = document.getElementById("divRisultati");
-    let titolo= document.createElement("h1");
-    let sottotitolo = document.createElement("h2");
-    sottotitolo.innerText = "ciao";
-    titolo.innerText = "results";
-    divRisultati.appendChild(titolo);
-    
-}
 
 function domande() {
   // Ripulisci il contenuto precedente delle risposte
@@ -181,8 +176,8 @@ function domande() {
 
     quiz.classList.add("hidden");
     quiz.innerText = "";
-    window.location.href = "results-page.html"
-    divResult();
+    divDeiRisultati.style.visibility = "visible";
+    
   }
 }
 
@@ -205,16 +200,43 @@ function conferma() {
       punteggio++;
     }
     console.log(punteggio);
+   
   }
 
   domande();
+
 }
+
+const ctx = document.getElementById('myChart');
 
 let correct = document.getElementById("corrette");
 let wrong = document.getElementById("sbagliate");
+correct.innerText = `${punteggio}0%`;
+wrong.innerText = `${10 - punteggio}0%`
 
-correct.innerText = "ciao"
 
+new Chart(ctx, {
+type: "doughnut",
+
+data: {
+
+    datasets: [{
+    label: '# of Votes',
+    data: [2],
+    borderWidth: 1
+    }]
+},
+
+});
+
+
+
+
+console.log(punteggio)
+console.log(punteggio)
+
+
+localStorage.setItem("punteggio", punteggio);
 
 /*
   // Passa alla prossima domanda o mostra il risultato finale

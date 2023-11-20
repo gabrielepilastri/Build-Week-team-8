@@ -19,6 +19,12 @@ body{
     text-align: center;
 }
 
+#resultContainer{
+    color: white;
+    text-align: center;
+    visibility: hidden;
+}
+
 #logo img{
     width: 8%;
     margin: auto;
@@ -76,9 +82,7 @@ li {
 
 }
 
-.stars{
 
-}
 
 #iPromise{
     background-color: #0C113B;
@@ -194,6 +198,7 @@ label {
 
 #commentArea{
     background-color: #27295200;
+    color: white;
     width: 30%;
     height: 2em;
     border: none;
@@ -260,3 +265,20 @@ input[type="radio"] {
  #centraledx{
     padding-right: 5%;
  }
+
+ .rating {
+    font-size: 70px;
+    cursor: pointer;
+}
+
+.star {
+    color: white;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+ .star:hover,
+.star.hovered,
+.star.clicked {
+    color: #00FFFF;
+}
