@@ -180,7 +180,8 @@ function domande() {
   } else {
 
     quiz.classList.add("hidden");
-    quiz.innerText = ""
+    quiz.innerText = "";
+    window.location.href = "results-page.html"
     divResult();
   }
 }
