@@ -122,15 +122,6 @@ label {
     display: inline-block;
     width: 70%;
 }
-
-#question{
-
-}
-
-#questionNumber{
-
-}
-
 .answers{
     /* visibility: hidden;     */
     display: inline-block;

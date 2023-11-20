@@ -41,14 +41,16 @@
 
     <footer>
       <div id="footer">
+        <form id="myForm">
         <input type="checkbox" id="iPromise" name="iPromise" required />
         <label for="iPromise">I promise to answer myself without help from anyone</label>
 
-        <button id="btnProceed"> <a href="question-page.html"><span>PROCEED</span></a></button>
+        <button type='submit' id="btnProceed" onclick="checkValidityAndRedirect()"> <span>PROCEED</span></button>
+      </form>
       </div>
     </footer>
   </div>
-  <script src="assets/js/script.js"></script>
+  <script src="assets/js/index.js"></script>
 </body>
 
 </html>

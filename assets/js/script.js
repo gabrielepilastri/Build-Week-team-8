@@ -111,11 +111,24 @@ let h3 = document.getElementById("questionNumber");
 let quiz = document.getElementById("quiz");
 let numeroDomanda = 1;
 let timer;
-let divDeiRisultati = document.getElementById("resultContainer")
-
+let divDeiRisultati = document.getElementById("resultContainer");
+let myChart; 
 window.addEventListener('load', init);
 
 function init() {
+  const ctx = document.getElementById('myChart').getContext('2d');
+  myChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ['Correct', 'Wrong'],
+      datasets: [{
+        label: '# of Votes',
+        data: [0, 0],
+        backgroundColor: ['#00FFFF', '#d20094'],
+        borderWidth: 1
+      }]
+    }
+  });
   domande();
 }
 
@@ -168,7 +181,7 @@ function domande() {
 
       answerBox.appendChild(label);
     }
-    h3.innerText = `DOMANDONA ${numeroDomanda}/10`;
+    h3.innerText = `DOMANDA ${numeroDomanda}/10`;
     indiceDomanda++;
     numeroDomanda++;
     resetTimer();
@@ -186,7 +199,6 @@ function domande() {
 
 
 bottone.addEventListener("click", conferma);
-
 function conferma() {
   // Ottieni la risposta selezionata
   const selezionata = document.querySelector('input[name="bottone"]:checked');
@@ -200,104 +212,29 @@ function conferma() {
       punteggio++;
     }
     console.log(punteggio);
-   
   }
 
   domande();
 
-}
-
-const ctx = document.getElementById('myChart');
-
+  
 let correct = document.getElementById("corrette");
 let wrong = document.getElementById("sbagliate");
-correct.innerText = `${punteggio}0%`;
-wrong.innerText = `${10 - punteggio}0%`
+  // Aggiorna il testo nel grafico
+  correct.innerText = `${punteggio * 10}%`;
+  wrong.innerText = `${(10 - punteggio) * 10}%`;
 
-
-new Chart(ctx, {
-type: "doughnut",
-
-data: {
-
-    datasets: [{
-    label: '# of Votes',
-    data: [2],
-    borderWidth: 1
-    }]
-},
-
-});
-
-
-
-
-console.log(punteggio)
-console.log(punteggio)
-
-
-localStorage.setItem("punteggio", punteggio);
-
-/*
-  // Passa alla prossima domanda o mostra il risultato finale
-  if (indiceDomanda < questions.length - 1) {
-    indiceDomanda++;
-    domande();
-  } else {
-    mostraRisultato();
-  }
-  domande();
-  bottone.addEventListener("click", conferma);
-/*
-function mostraRisultato() {
-  alert(`Quiz completato! Punteggio: ${punteggio}/${questions.length}`);
-  // Puoi anche aggiungere logica per mostrare i risultati nell'HTML
+  // Aggiorna il grafico
+  
+  
+    updateChart();
 }
 
-// Aggiungi l'evento click al bottone
-bottone.addEventListener("click", conferma);
-
-// Chiamate alle funzioni principali
-domande();
-
-
-
-// function selectAnswer() {
-//   label.addEventListener("click", colora())
-// }
-
-
-// function colora() {
-//   label.classList.add("answersChecked")
-// }
-
-// selectAnswer();
-
-// function timer() {
-//   setInterval(window.onload, 30000)
-// }
-
-
-
-
-  // 
-
-
-
-
-    
-  //   answer1.innerText = oggetto.answers[getRandomNum];
-  //   answer2.innerText = oggetto.answers[getRandomNum];
-  //   answer3.innerText = oggetto.answers[getRandomNum];
-  //   answer4.innerText = oggetto.answers[getRandomNum];
-    
-    
-// vogliamo generare un numero random non ripetuto da assegnare all'indice della risposta in modo che le risposte si dispongano casualmente 
-
-
-
-// }
-//   }
+function updateChart() {
+  
+  // Aggiorna il grafico con i nuovi dati
+  myChart.data.datasets[0].data = [punteggio, 10 - punteggio];
+  myChart.update();
+}
 
 
 
@@ -306,42 +243,11 @@ domande();
 
 
 
-/* function domandaCorrente() {
-// if (conferma())
-for (let i = 0; i < questions.length; i++) {
-  let oggetto = questions[i];
-  domanda.innerText = oggetto.question;
-
-  for (let j = 0; j < questions[i].answers.length; j++){
-    const getRandomNum = function() {
-         const numRisposte = questions[i].answers
-         const randIndex = Math.floor(Math.random() * numRisposte.length)
-         const random = numRisposte.splice(randIndex, 1)[0]
-         console.log(random)
-         return random;
-       }
-       getRandomNum ()
-    
-  }
 
 
-}}; */
 
 
-// function move() {
-//   const element = document.getElementById("barra");
-//   let width = 0;
-//   let id = setInterval(frame, 100);
-//   function frame() {
-//     if (width == 50) {
-//       clearInterval(id);
-//     } else {
-//       width++;
-//       element.style.width = width + "%";
-//     }
-//   }
-// }
 
-// move()
+
 
 
